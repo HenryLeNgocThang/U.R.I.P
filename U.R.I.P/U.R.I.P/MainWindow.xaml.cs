@@ -25,8 +25,8 @@ namespace U.R.I.P
             InitializeComponent();
 
             /* Preselect "Bitte Wählen" */
-            RolleButton.IsSelected = true;
-        }
+            NutzerButton.IsSelected = true;
+    }
 
         /* Elemente die ein- und ausgeblendet werden sollen je nachdem auf was man drückt */
         private void Button_Ansicht(object sender, RoutedEventArgs e)
@@ -65,27 +65,94 @@ namespace U.R.I.P
             Lehrer.Visibility = Visibility.Hidden;
         }
 
-        private void ComboBoxItem_RolleButton(object sender, RoutedEventArgs e)
+        private void ComboBoxItem_NutzerButton(object sender, RoutedEventArgs e)
         {
             Angestellter.Visibility = Visibility.Hidden;
             HinzufuegenGrid.Visibility = Visibility.Hidden;
             Lehrer.Visibility = Visibility.Hidden;
             Schueler.Visibility = Visibility.Hidden;
         }
-        
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            AngestellterListe.Visibility = Visibility.Visible;
+            LehrerListe.Visibility = Visibility.Hidden;
+            SchuelerListe.Visibility = Visibility.Hidden;
+
+            /* Lade die Listen Inhalte in die ListView */
+            AngestellterListe.ItemsSource = angestellterList;
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            LehrerListe.Visibility = Visibility.Visible;
+            AngestellterListe.Visibility = Visibility.Hidden;
+            SchuelerListe.Visibility = Visibility.Hidden;
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            SchuelerListe.Visibility = Visibility.Visible;
+            AngestellterListe.Visibility = Visibility.Hidden;
+            LehrerListe.Visibility = Visibility.Hidden;
+
+            /* Lade die Listen Inhalte in die ListView */
+            SchuelerListe.ItemsSource = schuelerList;
+        }
+
+        List<Angestellter> angestellterList = new List<Angestellter>();
+        List<Lehrer> lehrerList = new List<Lehrer>();
+        List<Schueler> schuelerList = new List<Schueler>();
+
+        int angestellterID = 1000;
+        int lehrerID = 2000;
+        int schuelerID = 3000;
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            List<Schueler> items = new List<Schueler>();
-            items.Add(new Schueler()
+
+            if (Angestellter.Visibility == Visibility.Visible)
             {
-                Nr = 42,
-                Name = SchuelerName.Text,
-                Mail = SchuelerEMail.Text
-            });
+                angestellterList.Add(
+                    new Angestellter()
+                    {
+                        Nr = angestellterID,
+                        Name = angestellterName.Text,
+                        Aufgabe = angestellterAufgabe.Text
+                    }
+                );
+                angestellterID++;
 
-            lvUsers.ItemsSource = items;
+                MessageBox.Show("Neuer Angestellter wurde erfolgreich angelegt!");
+            }
+            else if (Lehrer.Visibility == Visibility.Visible)
+            {
+                lehrerList.Add(
+                    new Lehrer()
+                    {
+                        Nr = lehrerID,
+                        Name = LehrerName.Text,
+                        Fach = LehrerFach.Text
+                    }
+                );
+                lehrerID++;
 
-            MessageBox.Show("Neuer Schüler wurde erfolgreich angelegt!");
+                MessageBox.Show("Neuer Lehrer wurde erfolgreich angelegt!");
+            }
+            else if (Schueler.Visibility == Visibility.Visible)
+            {
+                schuelerList.Add(
+                    new Schueler()
+                    {
+                        Nr = schuelerID,
+                        Name = SchuelerName.Text,
+                        Mail = SchuelerEMail.Text
+                    }
+                );
+                schuelerID++;
+
+                MessageBox.Show("Neuer Schüler wurde erfolgreich angelegt!");
+            }
         }
     }
 }
