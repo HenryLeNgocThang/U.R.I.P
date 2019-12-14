@@ -1,0 +1,101 @@
+﻿<Window x:Class="U.R.I.P.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:U.R.I.P"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="1*" />
+			<RowDefinition Height="7*" />
+		</Grid.RowDefinitions>
+		<Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="1*" />
+				<ColumnDefinition Width="1*" />
+			</Grid.ColumnDefinitions>
+			<Grid>
+				<Button Content="Ansicht" Click="Button_Ansicht" />
+			</Grid>
+			<Grid Grid.Column="1">
+				<Button Content="Hinzufügen" Click="Button_Hinzufuegen" />
+			</Grid>
+		</Grid>
+
+
+		<Grid x:Name="Ansicht" Grid.Row="1" Visibility="Hidden">
+			<Label Content="YOOOOO" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		</Grid>
+
+
+		<Grid x:Name="Hinzufuegen" Grid.Row="1" Visibility="Visible">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="1*" />
+				<ColumnDefinition Width="1*" />
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="1*" />
+				<RowDefinition Height="1*" />
+			</Grid.RowDefinitions>
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="1*" />
+					<RowDefinition Height="1*" />
+				</Grid.RowDefinitions>
+				<Label Grid.Row="1" Content="Bitte auswählen:" VerticalAlignment="Top" Width="300"/>
+				<ComboBox Grid.Row="1" VerticalAlignment="Center" Width="300">
+					<ComboBoxItem IsSelected="True">Bitte wählen</ComboBoxItem>
+					<ComboBoxItem Selected="ComboBoxItem_Angestellter">Angestellter</ComboBoxItem>
+					<ComboBoxItem Selected="ComboBoxItem_Lehrer">Lehrer</ComboBoxItem>
+					<ComboBoxItem Selected="ComboBoxItem_Schueler">Schüler</ComboBoxItem>
+				</ComboBox>
+			</Grid>
+			<Grid x:Name="Angestellter" Grid.Row="2" Visibility="Hidden">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="1*" />
+					<RowDefinition Height="1*" />
+				</Grid.RowDefinitions>
+				<Label Content="Name:" VerticalAlignment="Top" Width="300"/>
+				<TextBox VerticalAlignment="Center" Width="300"/>
+				<Label Grid.Row="1" Content="Aufgabe:" VerticalAlignment="Top" Width="300"/>
+				<TextBox Grid.Row="1" VerticalAlignment="Center" Width="300"/>
+			</Grid>
+			<Grid x:Name="Lehrer" Grid.Row="2" Visibility="Hidden">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="1*" />
+					<RowDefinition Height="1*" />
+				</Grid.RowDefinitions>
+				<Label Content="Name:" VerticalAlignment="Top" Width="300"/>
+				<TextBox VerticalAlignment="Center" Width="300"/>
+				<Label Grid.Row="1" Content="Fächer:" VerticalAlignment="Top" Width="300"/>
+				<ComboBox Grid.Row="1" VerticalAlignment="Center" Width="300">
+					<ComboBoxItem IsSelected="True">Bitte wählen</ComboBoxItem>
+					<ComboBoxItem>
+						<CheckBox Content="Mathe"/>
+					</ComboBoxItem>
+					<ComboBoxItem>
+						<CheckBox Content="Deutsch"/>
+					</ComboBoxItem>
+					<ComboBoxItem>
+						<CheckBox Content="Englisch"/>
+					</ComboBoxItem>
+					<ComboBoxItem>
+						<CheckBox Content="AWE"/>
+					</ComboBoxItem>
+				</ComboBox>
+			</Grid>
+			<Grid x:Name="Schueler" Grid.Row="2" Visibility="Hidden">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="1*" />
+					<RowDefinition Height="1*" />
+				</Grid.RowDefinitions>
+				<Label Content="Name:" VerticalAlignment="Top" Width="300"/>
+				<TextBox VerticalAlignment="Center" Width="300"/>
+				<Label Grid.Row="1" Content="E-Mail:" VerticalAlignment="Top" Width="300"/>
+				<TextBox Grid.Row="1" VerticalAlignment="Center" Width="300"/>
+			</Grid>
+		</Grid>
+	</Grid>
+</Window>
