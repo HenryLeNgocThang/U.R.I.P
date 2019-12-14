@@ -43,20 +43,26 @@
             <ListView Grid.Row="1" x:Name="AngestellterListe">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="Nr" Width="50" DisplayMemberBinding="{Binding Nr}" />
+                        <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding Nr}" />
                         <GridViewColumn Header="Name" Width="200" DisplayMemberBinding="{Binding Name}" />
                         <GridViewColumn Header="Aufgabe" Width="300" DisplayMemberBinding="{Binding Aufgabe}" />
                     </GridView>
                 </ListView.View>
+                <ListView.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Bearbeiten" Command="{Binding Bearbeiten}" MouseDown="MenuItem_MouseDown"></MenuItem>
+                        <MenuItem Header="Löschen" Command="{Binding Loeschen}"></MenuItem>
+                    </ContextMenu>
+                </ListView.ContextMenu>
             </ListView>
 
             <!-- Lehrer Liste -->
-            <ListView Grid.Row="1" x:Name="LehrerListe" Visibility="Hidden">
+            <ListView SelectionMode="Multiple" Grid.Row="1" x:Name="LehrerListe" Visibility="Visible">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="Nr" Width="50" DisplayMemberBinding="{Binding Nr}" />
+                        <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding Nr}" />
                         <GridViewColumn Header="Name" Width="200" DisplayMemberBinding="{Binding Name}" />
-                        <GridViewColumn Header="Fach" Width="300" DisplayMemberBinding="{Binding Fach}" />
+                        <GridViewColumn Header="Fächer" Width="300" DisplayMemberBinding="{Binding Fach}"/>
                     </GridView>
                 </ListView.View>
             </ListView>
@@ -65,9 +71,9 @@
             <ListView Grid.Row="1" x:Name="SchuelerListe" Visibility="Hidden">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="Nr" Width="50" DisplayMemberBinding="{Binding Nr}" />
+                        <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding Nr}" />
                         <GridViewColumn Header="Name" Width="200" DisplayMemberBinding="{Binding Name}" />
-                        <GridViewColumn Header="Mail" Width="150">
+                        <GridViewColumn Header="Mail" Width="300">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding Mail}" TextDecorations="Underline" Foreground="Blue" Cursor="Hand" />
@@ -94,7 +100,7 @@
                     <RowDefinition Height="1*" />
                     <RowDefinition Height="1*" />
                 </Grid.RowDefinitions>
-                <Label Content="Bitte auswählen:" VerticalAlignment="Center" Width="300"/>
+                <Label Content="Bitte Nutzer Typ wählen:" VerticalAlignment="Center" Width="300"/>
                 <ComboBox VerticalAlignment="Bottom" Width="300">
                     <ComboBoxItem x:Name="NutzerButton" Selected="ComboBoxItem_NutzerButton">Bitte wählen</ComboBoxItem>
                     <ComboBoxItem Selected="ComboBoxItem_Angestellter">Angestellter</ComboBoxItem>
@@ -110,9 +116,9 @@
                     <RowDefinition Height="1*" />
                 </Grid.RowDefinitions>
                 <Label Content="Name:" VerticalAlignment="Center" Width="300"/>
-                <TextBox x:Name="angestellterName" VerticalAlignment="Bottom" Width="300" Height="23px"/>
+                <TextBox x:Name="AngestellterName" VerticalAlignment="Bottom" Width="300" Height="23px"/>
                 <Label Grid.Row="1" Content="Aufgabe:" VerticalAlignment="Center" Width="300"/>
-                <TextBox x:Name="angestellterAufgabe" Grid.Row="1" VerticalAlignment="Bottom" Width="300" Height="23px"/>
+                <TextBox x:Name="AngestellterAufgabe" Grid.Row="1" VerticalAlignment="Bottom" Width="300" Height="23px"/>
             </Grid>
 
             <!-- Lehrer Inputs -->
@@ -123,21 +129,12 @@
                 </Grid.RowDefinitions>
                 <Label Content="Name:" VerticalAlignment="Center" Width="300"/>
                 <TextBox x:Name="LehrerName" VerticalAlignment="Bottom" Width="300" Height="23px"/>
-                <Label Grid.Row="1" Content="Fächer:" VerticalAlignment="Center" Width="300"/>
-                <ComboBox x:Name="LehrerFach" Grid.Row="1" VerticalAlignment="Bottom" Width="300">
-                    <ComboBoxItem IsSelected="True">Bitte wählen</ComboBoxItem>
-                    <ComboBoxItem>
-                        <CheckBox Content="Mathe"/>
-                    </ComboBoxItem>
-                    <ComboBoxItem>
-                        <CheckBox Content="Deutsch"/>
-                    </ComboBoxItem>
-                    <ComboBoxItem>
-                        <CheckBox Content="Englisch"/>
-                    </ComboBoxItem>
-                    <ComboBoxItem>
-                        <CheckBox Content="AWE"/>
-                    </ComboBoxItem>
+                <Label Grid.Row="1" Content="Fächer:" VerticalAlignment="Top" Width="300"/>
+                <ComboBox x:Name="LehrerFach" Grid.Row="1" VerticalAlignment="Center" Width="300">
+                    <CheckBox Content="Mathe"/>
+                    <CheckBox Content="Deutsch"/>
+                    <CheckBox Content="Englisch"/>
+                    <CheckBox Content="AWE"/>
                 </ComboBox>
             </Grid>
 

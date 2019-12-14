@@ -12,6 +12,6 @@ namespace U.R.I.P
 
         public string Name { get; set; }
 
-        public string Fach { get; set; }
+        public string Fach { get; set;}
     }
 }

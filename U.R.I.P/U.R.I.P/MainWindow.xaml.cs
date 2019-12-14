@@ -20,6 +20,14 @@ namespace U.R.I.P
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<Angestellter> angestellterList = new List<Angestellter>();
+        List<Lehrer> lehrerList = new List<Lehrer>();
+        List<Schueler> schuelerList = new List<Schueler>();
+
+        int angestellterID = 1000;
+        int lehrerID = 3000;
+        int schuelerID = 5000;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -88,6 +96,9 @@ namespace U.R.I.P
             LehrerListe.Visibility = Visibility.Visible;
             AngestellterListe.Visibility = Visibility.Hidden;
             SchuelerListe.Visibility = Visibility.Hidden;
+
+            /* Lade die Listen Inhalte in die ListView */
+            LehrerListe.ItemsSource = lehrerList;
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
@@ -100,25 +111,17 @@ namespace U.R.I.P
             SchuelerListe.ItemsSource = schuelerList;
         }
 
-        List<Angestellter> angestellterList = new List<Angestellter>();
-        List<Lehrer> lehrerList = new List<Lehrer>();
-        List<Schueler> schuelerList = new List<Schueler>();
-
-        int angestellterID = 1000;
-        int lehrerID = 2000;
-        int schuelerID = 3000;
-
+        /* Knopf zum hinzufügen des Objekts */
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
             if (Angestellter.Visibility == Visibility.Visible)
             {
                 angestellterList.Add(
                     new Angestellter()
                     {
                         Nr = angestellterID,
-                        Name = angestellterName.Text,
-                        Aufgabe = angestellterAufgabe.Text
+                        Name = AngestellterName.Text,
+                        Aufgabe = AngestellterAufgabe.Text
                     }
                 );
                 angestellterID++;
@@ -127,12 +130,26 @@ namespace U.R.I.P
             }
             else if (Lehrer.Visibility == Visibility.Visible)
             {
+                /* Speichert alle Items in der Combobox */
+                ItemCollection comboitems = LehrerFach.Items;
+                List<string> checkedItems = new List<string>();
+                
+                /* Für jede CheckBox die gecheckt ist wird zur List checkedItems hinzugefügt */
+                foreach (CheckBox item in comboitems)
+                {
+                    if (item.IsChecked == true)
+                    {
+                        checkedItems.Add(item.Content.ToString());
+                    }
+                }
+
                 lehrerList.Add(
                     new Lehrer()
                     {
                         Nr = lehrerID,
                         Name = LehrerName.Text,
-                        Fach = LehrerFach.Text
+                        /* Verbindet alle strings in checkedItems zusammen und trennt sie mit einem Komma */
+                        Fach = String.Join(", ", checkedItems)
                     }
                 );
                 lehrerID++;
@@ -153,6 +170,12 @@ namespace U.R.I.P
 
                 MessageBox.Show("Neuer Schüler wurde erfolgreich angelegt!");
             }
+        }
+
+        private void MenuItem_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            /*MessageBox.Show(AngestellterListe.SelectedItem.ToString());*/
+            MessageBox.Show("sss");
         }
     }
 }
