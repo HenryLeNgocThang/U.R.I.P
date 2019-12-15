@@ -21,7 +21,7 @@
         </Grid>
 
         <!-- Ansicht Form -->
-        <Grid x:Name="Ansicht" Grid.Row="1" Visibility="Visible">
+        <Grid x:Name="Ansicht" Grid.Row="1" Visibility="Hidden">
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*" />
                 <RowDefinition Height="15*" />
@@ -50,8 +50,7 @@
                 </ListView.View>
                 <ListView.ContextMenu>
                     <ContextMenu>
-                        <MenuItem Header="Bearbeiten" Command="{Binding Bearbeiten}"></MenuItem>
-                        <MenuItem Header="Löschen" Command="{Binding Loeschen}" Click="MenuItem_Click"></MenuItem>
+                        <MenuItem Header="Löschen" Click="MenuItem_Click"></MenuItem>
                     </ContextMenu>
                 </ListView.ContextMenu>
             </ListView>
@@ -67,8 +66,7 @@
                 </ListView.View>
                 <ListView.ContextMenu>
                     <ContextMenu>
-                        <MenuItem Header="Bearbeiten" Command="{Binding Bearbeiten}"></MenuItem>
-                        <MenuItem Header="Löschen" Command="{Binding Loeschen}" Click="MenuItem_Click_1"></MenuItem>
+                        <MenuItem Header="Löschen" Click="MenuItem_Click_1"></MenuItem>
                     </ContextMenu>
                 </ListView.ContextMenu>
             </ListView>
@@ -90,15 +88,14 @@
                 </ListView.View>
                 <ListView.ContextMenu>
                     <ContextMenu>
-                        <MenuItem Header="Bearbeiten" Command="{Binding Bearbeiten}"></MenuItem>
-                        <MenuItem Header="Löschen" Command="{Binding Loeschen}" Click="MenuItem_Click_2"></MenuItem>
+                        <MenuItem Header="Löschen" Click="MenuItem_Click_2"></MenuItem>
                     </ContextMenu>
                 </ListView.ContextMenu>
             </ListView>
         </Grid>
 
         <!-- Hinzufügen Form -->
-        <Grid x:Name="Hinzufuegen" Grid.Row="1" Visibility="Hidden">
+        <Grid x:Name="Hinzufuegen" Grid.Row="1" Visibility="Visible">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*" />
                 <ColumnDefinition Width="1*" />

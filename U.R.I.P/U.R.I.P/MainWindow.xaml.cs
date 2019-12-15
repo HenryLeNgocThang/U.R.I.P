@@ -1,17 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace U.R.I.P
 {
@@ -20,6 +10,7 @@ namespace U.R.I.P
     /// </summary>
     public partial class MainWindow : Window
     {
+        /* Deklarationen */
         List<Angestellter> angestellterList = new List<Angestellter>();
         List<Lehrer> lehrerList = new List<Lehrer>();
         List<Schueler> schuelerList = new List<Schueler>();
@@ -34,15 +25,7 @@ namespace U.R.I.P
 
             /* Preselect "Bitte Wählen" */
             NutzerButton.IsSelected = true;
-
-            /* Listen etwas befüllen */
-            for (int i = 0; i < 10; i++)
-            {
-                angestellterList.Add(new Angestellter() { Nr = angestellterID + i, Aufgabe = i.ToString(), Name = i.ToString() });
-                lehrerList.Add(new Lehrer() { Nr = lehrerID + i, Fach = i.ToString(), Name = i.ToString() });
-                schuelerList.Add(new Schueler() { Nr = schuelerID + i, Mail = i.ToString(), Name = i.ToString() });
-            }
-    }
+        }
 
         /* Elemente die ein- und ausgeblendet werden sollen je nachdem auf was man drückt */
         private void Button_Ansicht(object sender, RoutedEventArgs e)
@@ -124,21 +107,28 @@ namespace U.R.I.P
         {
             if (Angestellter.Visibility == Visibility.Visible)
             {
-                angestellterList.Add(
-                    new Angestellter()
-                    {
-                        Nr = angestellterID,
-                        Name = AngestellterName.Text,
-                        Aufgabe = AngestellterAufgabe.Text
-                    }
-                );
-                angestellterID++;
+                if (AngestellterName.Text != "" && AngestellterAufgabe.Text != "")
+                {
+                    angestellterList.Add(
+                        new Angestellter()
+                        {
+                            Nr = angestellterID,
+                            Name = AngestellterName.Text,
+                            Aufgabe = AngestellterAufgabe.Text
+                        }
+                    );
+                    angestellterID++;
 
-                MessageBox.Show("Neuer Angestellter wurde erfolgreich angelegt!");
+                    MessageBox.Show("Neuer Angestellter wurde erfolgreich angelegt!");
+                }
+                else
+                {
+                    MessageBox.Show("Bitte überprüfe deine Angaben!");
+                }
             }
             else if (Lehrer.Visibility == Visibility.Visible)
             {
-                /* Speichert alle Items in der Combobox */
+                /* Zum speichern aller Items in der Combobox */
                 ItemCollection comboitems = LehrerFach.Items;
                 List<string> checkedItems = new List<string>();
                 
@@ -151,32 +141,46 @@ namespace U.R.I.P
                     }
                 }
 
-                lehrerList.Add(
-                    new Lehrer()
-                    {
-                        Nr = lehrerID,
-                        Name = LehrerName.Text,
-                        /* Verbindet alle strings in checkedItems zusammen und trennt sie mit einem Komma */
-                        Fach = String.Join(", ", checkedItems)
-                    }
-                );
-                lehrerID++;
+                if (LehrerName.Text != "" && checkedItems.Count != 0)
+                {
+                    lehrerList.Add(
+                        new Lehrer()
+                        {
+                            Nr = lehrerID,
+                            Name = LehrerName.Text,
+                                            /* Verbindet alle strings in checkedItems zusammen und trennt sie mit einem Komma */
+                            Fach = String.Join(", ", checkedItems)
+                        }
+                    );
+                    lehrerID++;
 
-                MessageBox.Show("Neuer Lehrer wurde erfolgreich angelegt!");
+                    MessageBox.Show("Neuer Lehrer wurde erfolgreich angelegt!");
+                }
+                else
+                {
+                    MessageBox.Show("Bitte überprüfe deine Angaben!");
+                }
             }
             else if (Schueler.Visibility == Visibility.Visible)
             {
-                schuelerList.Add(
-                    new Schueler()
-                    {
-                        Nr = schuelerID,
-                        Name = SchuelerName.Text,
-                        Mail = SchuelerEMail.Text
-                    }
-                );
-                schuelerID++;
+                if (SchuelerName.Text != "" && SchuelerEMail.Text != "")
+                {
+                    schuelerList.Add(
+                        new Schueler()
+                        {
+                            Nr = schuelerID,
+                            Name = SchuelerName.Text,
+                            Mail = SchuelerEMail.Text
+                        }
+                    );
+                    schuelerID++;
 
-                MessageBox.Show("Neuer Schüler wurde erfolgreich angelegt!");
+                    MessageBox.Show("Neuer Schüler wurde erfolgreich angelegt!");
+                }
+                else
+                {
+                    MessageBox.Show("Bitte überprüfe deine Angaben!");
+                }
             }
         }
 
