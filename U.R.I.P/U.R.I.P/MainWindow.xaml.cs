@@ -16,8 +16,8 @@ namespace U.R.I.P
         List<Schueler> schuelerList = new List<Schueler>();
 
         int angestellterID = 1000;
-        int lehrerID = 3000;
-        int schuelerID = 5000;
+        int lehrerID = 1000;
+        int schuelerID = 1000;
 
         public MainWindow()
         {

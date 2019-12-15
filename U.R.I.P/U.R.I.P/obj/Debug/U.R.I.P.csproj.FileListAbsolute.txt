@@ -13,3 +13,17 @@ D:\XAMPP\htdocs\U.R.I.P\U.R.I.P\U.R.I.P\obj\Debug\U.R.I.P.csproj.GenerateResourc
 D:\XAMPP\htdocs\U.R.I.P\U.R.I.P\U.R.I.P\obj\Debug\U.R.I.P.csproj.CoreCompileInputs.cache
 D:\XAMPP\htdocs\U.R.I.P\U.R.I.P\U.R.I.P\obj\Debug\U.R.I.P.exe
 D:\XAMPP\htdocs\U.R.I.P\U.R.I.P\U.R.I.P\obj\Debug\U.R.I.P.pdb
+C:\xampp\htdocs\projects\U.R.I.P\U.R.I.P\U.R.I.P\bin\Debug\U.R.I.P.exe.config
+C:\xampp\htdocs\projects\U.R.I.P\U.R.I.P\U.R.I.P\bin\Debug\U.R.I.P.exe
+C:\xampp\htdocs\projects\U.R.I.P\U.R.I.P\U.R.I.P\bin\Debug\U.R.I.P.pdb
+C:\xampp\htdocs\projects\U.R.I.P\U.R.I.P\U.R.I.P\obj\Debug\U.R.I.P.csprojAssemblyReference.cache
+C:\xampp\htdocs\projects\U.R.I.P\U.R.I.P\U.R.I.P\obj\Debug\MainWindow.g.cs
+C:\xampp\htdocs\projects\U.R.I.P\U.R.I.P\U.R.I.P\obj\Debug\App.g.cs
+C:\xampp\htdocs\projects\U.R.I.P\U.R.I.P\U.R.I.P\obj\Debug\U.R.I.P_MarkupCompile.cache
+C:\xampp\htdocs\projects\U.R.I.P\U.R.I.P\U.R.I.P\obj\Debug\U.R.I.P_MarkupCompile.lref
+C:\xampp\htdocs\projects\U.R.I.P\U.R.I.P\U.R.I.P\obj\Debug\MainWindow.baml
+C:\xampp\htdocs\projects\U.R.I.P\U.R.I.P\U.R.I.P\obj\Debug\U.R.I.P.g.resources
+C:\xampp\htdocs\projects\U.R.I.P\U.R.I.P\U.R.I.P\obj\Debug\U.R.I.P.Properties.Resources.resources
+C:\xampp\htdocs\projects\U.R.I.P\U.R.I.P\U.R.I.P\obj\Debug\U.R.I.P.csproj.GenerateResource.cache
+C:\xampp\htdocs\projects\U.R.I.P\U.R.I.P\U.R.I.P\obj\Debug\U.R.I.P.exe
+C:\xampp\htdocs\projects\U.R.I.P\U.R.I.P\U.R.I.P\obj\Debug\U.R.I.P.pdb
