@@ -34,6 +34,14 @@ namespace U.R.I.P
 
             /* Preselect "Bitte Wählen" */
             NutzerButton.IsSelected = true;
+
+            /* Listen etwas befüllen */
+            for (int i = 0; i < 10; i++)
+            {
+                angestellterList.Add(new Angestellter() { Nr = angestellterID + i, Aufgabe = i.ToString(), Name = i.ToString() });
+                lehrerList.Add(new Lehrer() { Nr = lehrerID + i, Fach = i.ToString(), Name = i.ToString() });
+                schuelerList.Add(new Schueler() { Nr = schuelerID + i, Mail = i.ToString(), Name = i.ToString() });
+            }
     }
 
         /* Elemente die ein- und ausgeblendet werden sollen je nachdem auf was man drückt */

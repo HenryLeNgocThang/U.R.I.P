@@ -24,7 +24,7 @@
         <Grid x:Name="Ansicht" Grid.Row="1" Visibility="Visible">
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*" />
-                <RowDefinition Height="10*" />
+                <RowDefinition Height="15*" />
             </Grid.RowDefinitions>
 
             <!-- Ansicht wechseln Knöpfe -->
