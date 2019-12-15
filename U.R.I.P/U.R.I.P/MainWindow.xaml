@@ -40,7 +40,7 @@
             </Grid>
 
             <!-- Angestellter Liste -->
-            <ListView Grid.Row="1" x:Name="AngestellterListe">
+            <ListView Grid.Row="1" x:Name="AngestellterListe" Visibility="Hidden">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding Nr}" />
@@ -50,14 +50,14 @@
                 </ListView.View>
                 <ListView.ContextMenu>
                     <ContextMenu>
-                        <MenuItem Header="Bearbeiten" Command="{Binding Bearbeiten}" MouseDown="MenuItem_MouseDown"></MenuItem>
-                        <MenuItem Header="Löschen" Command="{Binding Loeschen}"></MenuItem>
+                        <MenuItem Header="Bearbeiten" Command="{Binding Bearbeiten}"></MenuItem>
+                        <MenuItem Header="Löschen" Command="{Binding Loeschen}" Click="MenuItem_Click"></MenuItem>
                     </ContextMenu>
                 </ListView.ContextMenu>
             </ListView>
 
             <!-- Lehrer Liste -->
-            <ListView SelectionMode="Multiple" Grid.Row="1" x:Name="LehrerListe" Visibility="Visible">
+            <ListView Grid.Row="1" x:Name="LehrerListe" Visibility="Hidden">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding Nr}" />
@@ -65,6 +65,12 @@
                         <GridViewColumn Header="Fächer" Width="300" DisplayMemberBinding="{Binding Fach}"/>
                     </GridView>
                 </ListView.View>
+                <ListView.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Bearbeiten" Command="{Binding Bearbeiten}"></MenuItem>
+                        <MenuItem Header="Löschen" Command="{Binding Loeschen}" Click="MenuItem_Click_1"></MenuItem>
+                    </ContextMenu>
+                </ListView.ContextMenu>
             </ListView>
 
             <!-- Schüler Liste -->
@@ -82,6 +88,12 @@
                         </GridViewColumn>
                     </GridView>
                 </ListView.View>
+                <ListView.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Bearbeiten" Command="{Binding Bearbeiten}"></MenuItem>
+                        <MenuItem Header="Löschen" Command="{Binding Loeschen}" Click="MenuItem_Click_2"></MenuItem>
+                    </ContextMenu>
+                </ListView.ContextMenu>
             </ListView>
         </Grid>
 

@@ -172,10 +172,35 @@ namespace U.R.I.P
             }
         }
 
-        private void MenuItem_MouseDown(object sender, MouseButtonEventArgs e)
+        /* Knopf zum Löschen der Datensätze */
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-            /*MessageBox.Show(AngestellterListe.SelectedItem.ToString());*/
-            MessageBox.Show("sss");
+            foreach (Angestellter angestellter in AngestellterListe.SelectedItems)
+            {
+                angestellterList.Remove(angestellter);
+            }
+
+            AngestellterListe.Items.Refresh();
+        }
+
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        {
+            foreach (Lehrer lehrer in LehrerListe.SelectedItems)
+            {
+                lehrerList.Remove(lehrer);
+            }
+
+            LehrerListe.Items.Refresh();
+        }
+
+        private void MenuItem_Click_2(object sender, RoutedEventArgs e)
+        {
+            foreach (Schueler schueler in SchuelerListe.SelectedItems)
+            {
+                schuelerList.Remove(schueler);
+            }
+
+            SchuelerListe.Items.Refresh();
         }
     }
 }
