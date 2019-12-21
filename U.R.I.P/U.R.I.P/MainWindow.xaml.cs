@@ -131,15 +131,15 @@ namespace U.R.I.P
         {
             if (Angestellter.Visibility == Visibility.Visible)
             {
-                if (AngestellterName.Text != "" && AngestellterAufgabe.Text != "")
+                if (AngestellterNameInput.Text != "" && AngestellterAufgabeInput.Text != "")
                 {
                     // Fügt ein neues Objekt hinzu mit dem Inhalt der TextBoxen.
                     angestellterList.Add(
                         new Angestellter()
                         {
                             Nr = angestellterID,
-                            Name = AngestellterName.Text,
-                            Aufgabe = AngestellterAufgabe.Text
+                            Name = AngestellterNameInput.Text,
+                            Aufgabe = AngestellterAufgabeInput.Text
                         }
                     );
                     angestellterID++;
@@ -154,7 +154,7 @@ namespace U.R.I.P
             else if (Lehrer.Visibility == Visibility.Visible)
             {
                 // Zum speichern aller Items in der Combobox.
-                ItemCollection comboitems = LehrerFach.Items;
+                ItemCollection comboitems = LehrerFachInput.Items;
                 List<string> checkedItems = new List<string>();
 
                 // Für jede CheckBox die gecheckt ist wird zur List checkedItems hinzugefügt.
@@ -166,13 +166,13 @@ namespace U.R.I.P
                     }
                 }
 
-                if (LehrerName.Text != "" && checkedItems.Count != 0)
+                if (LehrerNameInput.Text != "" && checkedItems.Count != 0)
                 {
                     lehrerList.Add(
                         new Lehrer()
                         {
                             Nr = lehrerID,
-                            Name = LehrerName.Text,
+                            Name = LehrerNameInput.Text,
                             // Verbindet alle strings in checkedItems zusammen und trennt sie mit einem Komma
                             Fach = String.Join(", ", checkedItems)
                         }
@@ -188,17 +188,17 @@ namespace U.R.I.P
             }
             else if (Schueler.Visibility == Visibility.Visible)
             {
-                if (SchuelerName.Text != "" && SchuelerEMail.Text != "")
+                if (SchuelerNameInput.Text != "" && SchuelerEMailInput.Text != "")
                 {
                     // Prüft mit einem Methodenaufruf ob die E-Mail valide ist.
-                    if (EMailIstValide(SchuelerEMail.Text))
+                    if (EMailIstValide(SchuelerEMailInput.Text))
                     {
                         schuelerList.Add(
                             new Schueler()
                             {
                                 Nr = schuelerID,
-                                Name = SchuelerName.Text,
-                                Mail = SchuelerEMail.Text
+                                Name = SchuelerNameInput.Text,
+                                Mail = SchuelerEMailInput.Text
                             }
                         );
                         schuelerID++;
@@ -265,7 +265,7 @@ namespace U.R.I.P
             SchuelerListe.Items.Refresh();
         }
 
-        /// Beim drücken auf "Bearbeiten" der jeweiligen Datensätze ändert sich das Styling und die TextBox wird bearbeitbar.
+        /// Führt Logik aus wenn man, beim rechtsklicken des ausgewählten Datensatzes, auf "Bearbeiten" drückt.
         // Für Angestellte
         private void MenuItem_Click_3(object sender, RoutedEventArgs e)
         {
@@ -278,6 +278,7 @@ namespace U.R.I.P
                 {
                     textBox.Background = Brushes.White;
                     textBox.BorderThickness = new Thickness(1);
+                    // TextBox bearbeitbar machen
                     textBox.IsReadOnly = false;
                     // TextBox wird über GridView gelayert. TextBox hat keine Response mehr für Maus, dadurch kann man dort rechtsklicken.
                     textBox.IsHitTestVisible = true;
