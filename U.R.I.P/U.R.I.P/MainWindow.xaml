@@ -21,7 +21,7 @@
         </Grid>
 
         <!-- Ansicht Form -->
-        <Grid x:Name="Ansicht" Grid.Row="1" Visibility="Hidden">
+        <Grid x:Name="Ansicht" Grid.Row="1" Visibility="Visible">
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*" />
                 <RowDefinition Height="15*" />
@@ -42,14 +42,27 @@
             <!-- Angestellter Liste -->
             <ListView Grid.Row="1" x:Name="AngestellterListe" Visibility="Hidden">
                 <ListView.View>
-                    <GridView>
+                    <GridView x:Name="Datensatz" >
                         <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding Nr}" />
-                        <GridViewColumn Header="Name" Width="200" DisplayMemberBinding="{Binding Name}" />
-                        <GridViewColumn Header="Aufgabe" Width="300" DisplayMemberBinding="{Binding Aufgabe}" />
+                        <GridViewColumn Header="Name" Width="200">
+                            <GridViewColumn.CellTemplate >
+                                <DataTemplate>
+                                    <TextBox x:Name="AngestellterName" IsHitTestVisible="False" IsReadOnly="True" BorderThickness="0" Background="Transparent" Width="300" Text="{Binding Name}" KeyDown="AngestellterTextBox_KeyDown"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Aufgabe" Width="300">
+                            <GridViewColumn.CellTemplate >
+                                <DataTemplate>
+                                    <TextBox x:Name="AngestellterAufgaben" IsHitTestVisible="False" IsReadOnly="True" BorderThickness="0" Background="Transparent" Width="300" Text="{Binding Aufgabe}" KeyDown="AngestellterTextBox_KeyDown"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
                     </GridView>
                 </ListView.View>
                 <ListView.ContextMenu>
                     <ContextMenu>
+                        <MenuItem Header="Bearbeiten" Click="MenuItem_Click_3"></MenuItem>
                         <MenuItem Header="Löschen" Click="MenuItem_Click"></MenuItem>
                     </ContextMenu>
                 </ListView.ContextMenu>
@@ -60,12 +73,25 @@
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding Nr}" />
-                        <GridViewColumn Header="Name" Width="200" DisplayMemberBinding="{Binding Name}" />
-                        <GridViewColumn Header="Fächer" Width="300" DisplayMemberBinding="{Binding Fach}"/>
+                        <GridViewColumn Header="Name" Width="200">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBox x:Name="LehrerName" IsHitTestVisible="False" IsReadOnly="True" BorderThickness="0" Background="Transparent" Width="300" Text="{Binding Name}" KeyDown="LehrerTextBox_KeyDown"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Fächer" Width="300">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBox x:Name="LehrerFach" IsHitTestVisible="False" IsReadOnly="True" BorderThickness="0" Background="Transparent" Width="300" Text="{Binding Fach}" KeyDown="LehrerTextBox_KeyDown"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
                     </GridView>
                 </ListView.View>
                 <ListView.ContextMenu>
                     <ContextMenu>
+                        <MenuItem Header="Bearbeiten" Click="MenuItem_Click_4"></MenuItem>
                         <MenuItem Header="Löschen" Click="MenuItem_Click_1"></MenuItem>
                     </ContextMenu>
                 </ListView.ContextMenu>
@@ -76,11 +102,17 @@
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding Nr}" />
-                        <GridViewColumn Header="Name" Width="200" DisplayMemberBinding="{Binding Name}" />
+                        <GridViewColumn Header="Name" Width="200">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBox x:Name="SchuelerName" IsHitTestVisible="False" IsReadOnly="True" BorderThickness="0" Background="Transparent" Width="300" Text="{Binding Name}" KeyDown="SchuelerTextBox_KeyDown"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
                         <GridViewColumn Header="Mail" Width="300">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding Mail}" TextDecorations="Underline" Foreground="Blue" Cursor="Hand" />
+                                    <TextBox x:Name="SchuelerMail" IsHitTestVisible="False" IsReadOnly="True" BorderThickness="0" Background="Transparent" Width="300" Text="{Binding Mail}" KeyDown="SchuelerTextBox_KeyDown"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
@@ -88,6 +120,7 @@
                 </ListView.View>
                 <ListView.ContextMenu>
                     <ContextMenu>
+                        <MenuItem Header="Bearbeiten" Click="MenuItem_Click_5"></MenuItem>
                         <MenuItem Header="Löschen" Click="MenuItem_Click_2"></MenuItem>
                     </ContextMenu>
                 </ListView.ContextMenu>
@@ -95,7 +128,7 @@
         </Grid>
 
         <!-- Hinzufügen Form -->
-        <Grid x:Name="Hinzufuegen" Grid.Row="1" Visibility="Visible">
+        <Grid x:Name="Hinzufuegen" Grid.Row="1" Visibility="Hidden">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*" />
                 <ColumnDefinition Width="1*" />
